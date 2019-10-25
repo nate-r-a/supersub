@@ -430,17 +430,7 @@ module SuperSub
     'W' => '𝖂',
     'X' => '𝖃',
     'Y' => '𝖄',
-    'Z' => '𝖅',
-    '0' => '0',
-    '1' => '1',
-    '2' => '2',
-    '3' => '3',
-    '4' => '4',
-    '5' => '5',
-    '6' => '6',
-    '7' => '7',
-    '8' => '8',
-    '9' => '9'
+    'Z' => '𝖅'
   }.freeze
 
   SANS_ITALIC = {
@@ -495,17 +485,7 @@ module SuperSub
     'W' => '𝘞',
     'X' => '𝘟',
     'Y' => '𝘠',
-    'Z' => '𝘡',
-    '0' => '0',
-    '1' => '1',
-    '2' => '2',
-    '3' => '3',
-    '4' => '4',
-    '5' => '5',
-    '6' => '6',
-    '7' => '7',
-    '8' => '8',
-    '9' => '9'
+    'Z' => '𝘡'
   }.freeze
 
   MONOSPACE = {
@@ -690,17 +670,7 @@ module SuperSub
     'W' => '𝙒',
     'X' => '𝙓',
     'Y' => '𝙔',
-    'Z' => '𝙕',
-    '0' => '0',
-    '1' => '1',
-    '2' => '2',
-    '3' => '3',
-    '4' => '4',
-    '5' => '5',
-    '6' => '6',
-    '7' => '7',
-    '8' => '8',
-    '9' => '9'
+    'Z' => '𝙕'
   }.freeze
 
   SERIF_BOLD = {
@@ -1135,33 +1105,33 @@ module SuperSub
     when :subscript, :sub
       str.gsub(/[a-zA-Z0-9]/, SUBSCRIPT)
     when :script
-      str.gsub(/[a-zA-Z0-9]/, SCRIPT)
+      str.gsub(/[a-zA-Z]/, SCRIPT)
     when :script_bold, :bold_script, :bscript
       str.gsub(/[a-zA-Z0-9]/, SCRIPT_BOLD)
     when :fullwidth, :full_width
       str.gsub(/[a-zA-Z0-9]/, FULLWIDTH)
     when :gothic
-      str.gsub(/[a-zA-Z0-9]/, GOTHIC)
+      str.gsub(/[a-zA-Z]/, GOTHIC)
     when :gothic_bold, :bold_gothic, :bgothic
-      str.gsub(/[a-zA-Z0-9]/, GOTHIC_BOLD)
+      str.gsub(/[a-zA-Z]/, GOTHIC_BOLD)
     when :sans_italic, :italic_sans
-      str.gsub(/[a-zA-Z0-9]/, SANS_ITALIC)
+      str.gsub(/[a-zA-Z]/, SANS_ITALIC)
     when :sans_bold, :bold_sans
       str.gsub(/[a-zA-Z0-9]/, SANS_BOLD)
     when :sans_bold_italic
-      str.gsub(/[a-zA-Z0-9]/, SANS_BOLD_ITALIC)
+      str.gsub(/[a-zA-Z]/, SANS_BOLD_ITALIC)
     when :serif_bold, :bold_serif
       str.gsub(/[a-zA-Z0-9]/, SERIF_BOLD)
     when :small_caps, :small
-      str.gsub(/[a-zA-Z0-9]/, SMALL_CAPS)
+      str.gsub(/[a-zA-Z]/, SMALL_CAPS)
     when :circled
       str.gsub(/[a-zA-Z0-9]/, CIRCLED)
     when :circled_negative
       str.gsub(/[a-zA-Z0-9]/, CIRCLED_NEGATIVE)
     when :squared
-      str.gsub(/[a-zA-Z0-9]/, SQUARED)
+      str.gsub(/[a-zA-Z]/, SQUARED)
     when :squared_negative
-      str.gsub(/[a-zA-Z0-9]/, SQUARED_NEGATIVE)
+      str.gsub(/[a-zA-Z]/, SQUARED_NEGATIVE)
     when :double_struck
       str.gsub(/[a-zA-Z0-9]/, DOUBLE_STRUCK)
     end
