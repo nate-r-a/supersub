@@ -1194,7 +1194,7 @@ module SuperSub
     when :double_struck
       str.gsub(/[a-zA-Z0-9]/, DOUBLE_STRUCK)
     when :inverted, :invert
-      str.gsub(/[a-zA-Z0-9]/, INVERTED)
+      str.gsub(/[a-zA-Z]/, INVERTED)
     end
   end
 end
