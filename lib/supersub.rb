@@ -1193,8 +1193,9 @@ module SuperSub
       str.gsub(/[a-zA-Z]/, SQUARED_NEGATIVE)
     when :double_struck
       str.gsub(/[a-zA-Z0-9]/, DOUBLE_STRUCK)
-    when :inverted, :invert
-      str.gsub(/[a-zA-Z]/, INVERTED)
+    when :inverted, :invert, :upside_down
+      # This one reverses the return to make it really "backwards"
+      str.gsub(/[a-zA-Z?!]/, INVERTED).reverse
     end
   end
 end
