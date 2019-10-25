@@ -193,7 +193,7 @@ module SuperSub
     'Z' => '𝒵'
   }.freeze
 
-  BOLD_SCRIPT = {
+  SCRIPT_BOLD = {
     'a' => '𝓪',
     'b' => '𝓫',
     'c' => '𝓬',
@@ -1063,7 +1063,7 @@ module SuperSub
     'Z' => '🆉'
   }.freeze
 
-  DOUBLE_STRIKE = {
+  DOUBLE_STRUCK = {
     'a' => '𝕒',
     'b' => '𝕓',
     'c' => '𝕔',
@@ -1132,6 +1132,38 @@ module SuperSub
     case style
     when :superscript, :super
       str.gsub(/[a-zA-Z0-9]/, SUPERSCRIPT)
+    when :subscript, :sub
+      str.gsub(/[a-zA-Z0-9]/, SUBSCRIPT)
+    when :script
+      str.gsub(/[a-zA-Z0-9]/, SCRIPT)
+    when :script_bold, :bold_script, :bscript
+      str.gsub(/[a-zA-Z0-9]/, SCRIPT_BOLD)
+    when :fullwidth, :full_width
+      str.gsub(/[a-zA-Z0-9]/, FULLWIDTH)
+    when :gothic
+      str.gsub(/[a-zA-Z0-9]/, GOTHIC)
+    when :gothic_bold, :bold_gothic, :bgothic
+      str.gsub(/[a-zA-Z0-9]/, GOTHIC_BOLD)
+    when :sans_italic, :italic_sans
+      str.gsub(/[a-zA-Z0-9]/, SANS_ITALIC)
+    when :sans_bold, :bold_sans
+      str.gsub(/[a-zA-Z0-9]/, SANS_BOLD)
+    when :sans_bold_italic
+      str.gsub(/[a-zA-Z0-9]/, SANS_BOLD_ITALIC)
+    when :serif_bold, :bold_serif
+      str.gsub(/[a-zA-Z0-9]/, SERIF_BOLD)
+    when :small_caps, :small
+      str.gsub(/[a-zA-Z0-9]/, SMALL_CAPS)
+    when :circled
+      str.gsub(/[a-zA-Z0-9]/, CIRCLED)
+    when :circled_negative
+      str.gsub(/[a-zA-Z0-9]/, CIRCLED_NEGATIVE)
+    when :squared
+      str.gsub(/[a-zA-Z0-9]/, SQUARED)
+    when :squared_negative
+      str.gsub(/[a-zA-Z0-9]/, SQUARED_NEGATIVE)
+    when :double_struck
+      str.gsub(/[a-zA-Z0-9]/, DOUBLE_STRUCK)
     end
   end
 end
