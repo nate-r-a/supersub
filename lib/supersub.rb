@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 module SuperSub
-  # def c(y)
-  #   x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-  #   x.split('').each_with_index do |a, i|
-  #     puts "\"#{a}\" => \"#{y.split('')[i]}\","
-  #   end
-  # end
+  def c(y)
+    x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!'
+    x.split('').each_with_index do |a, i|
+      puts "\"#{a}\" => \"#{y.split('')[i]}\","
+    end
+  end
 
   SUPERSCRIPT = {
     'a' => 'ᵃ',
@@ -320,7 +320,9 @@ module SuperSub
     '6' => '６',
     '7' => '７',
     '8' => '８',
-    '9' => '９'
+    '9' => '９',
+    '?' => '？',
+    '!' => '！'
   }.freeze
 
   GOTHIC = {
@@ -1098,6 +1100,63 @@ module SuperSub
     '9' => '𝟡'
   }.freeze
 
+  INVERTED = {
+    'a' => 'ɐ',
+    'b' => 'q',
+    'c' => 'ɔ',
+    'd' => 'p',
+    'e' => 'ǝ',
+    'f' => 'ɟ',
+    'g' => 'ƃ',
+    'h' => 'ɥ',
+    'i' => 'ı',
+    'j' => 'ɾ',
+    'k' => 'ʞ',
+    'l' => 'ן',
+    'm' => 'ɯ',
+    'n' => 'u',
+    'o' => 'o',
+    'p' => 'd',
+    'q' => 'b',
+    'r' => 'ɹ',
+    's' => 's',
+    't' => 'ʇ',
+    'u' => 'n',
+    'v' => 'ʌ',
+    'w' => 'ʍ',
+    'x' => 'x',
+    'y' => 'ʎ',
+    'z' => 'z',
+    'A' => 'ɐ',
+    'B' => 'q',
+    'C' => 'ɔ',
+    'D' => 'p',
+    'E' => 'ǝ',
+    'F' => 'ɟ',
+    'G' => 'ƃ',
+    'H' => 'ɥ',
+    'I' => 'ı',
+    'J' => 'ɾ',
+    'K' => 'ʞ',
+    'L' => 'ן',
+    'M' => 'ɯ',
+    'N' => 'u',
+    'O' => 'o',
+    'P' => 'd',
+    'Q' => 'b',
+    'R' => 'ɹ',
+    'S' => 's',
+    'T' => 'ʇ',
+    'U' => 'n',
+    'V' => '𐌡',
+    'W' => 'ʍ',
+    'X' => 'x',
+    'Y' => 'ʎ',
+    'Z' => 'z',
+    '?' => '¿',
+    '!' => '¡'
+  }.freeze
+
   def self.convert(str, style)
     case style
     when :superscript, :super
@@ -1109,7 +1168,7 @@ module SuperSub
     when :script_bold, :bold_script, :bscript
       str.gsub(/[a-zA-Z0-9]/, SCRIPT_BOLD)
     when :fullwidth, :full_width
-      str.gsub(/[a-zA-Z0-9]/, FULLWIDTH)
+      str.gsub(/[a-zA-Z0-9?!]/, FULLWIDTH)
     when :gothic
       str.gsub(/[a-zA-Z]/, GOTHIC)
     when :gothic_bold, :bold_gothic, :bgothic
@@ -1134,6 +1193,8 @@ module SuperSub
       str.gsub(/[a-zA-Z]/, SQUARED_NEGATIVE)
     when :double_struck
       str.gsub(/[a-zA-Z0-9]/, DOUBLE_STRUCK)
+    when :inverted, :invert
+      str.gsub(/[a-zA-Z0-9]/, INVERTED)
     end
   end
 end
