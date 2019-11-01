@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module SuperSub
-  def c(y)
-    x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!'
+  def c(y, x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!')
+    # x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!'
     x.split('').each_with_index do |a, i|
       puts "\"#{a}\" => \"#{y.split('')[i]}\","
     end
@@ -321,8 +321,33 @@ module SuperSub
     '7' => '７',
     '8' => '８',
     '9' => '９',
+    '.' => '．',
+    ',' => '，',
     '?' => '？',
-    '!' => '！'
+    '!' => '！',
+    "@" => "＠",
+    "#" => "＃",
+    "$" => "＄",
+    "%" => "％",
+    "^" => "＾",
+    "&" => "＆",
+    "*" => "＊",
+    "(" => "（",
+    ")" => "）",
+    "=" => "＝",
+    "+" => "＋",
+    "-" => "－",
+    "_" => "＿",
+    "[" => "［",
+    "]" => "］",
+    "{" => "｛",
+    "}" => "｝",
+    "<" => "<",
+    ">" => ">",
+    "'" => "＇",
+    "\"" => "\"",
+    "`" => "｀",
+    "~" => "～",
   }.freeze
 
   GOTHIC = {
@@ -857,7 +882,12 @@ module SuperSub
     '6' => '⑥',
     '7' => '⑦',
     '8' => '⑧',
-    '9' => '⑨'
+    '9' => '⑨',
+    '.' => '⨀',
+    "*" => "⊛"
+    "+" => "⊕",
+    "-" => "⊖",
+    "=" => '⊜'
   }.freeze
 
   CIRCLED_NEGATIVE = {
@@ -977,7 +1007,11 @@ module SuperSub
     'W' => '🅆',
     'X' => '🅇',
     'Y' => '🅈',
-    'Z' => '🅉'
+    'Z' => '🅉',
+    '.' => '⊡',
+    "*" => "⧆"
+    "+" => "⊞",
+    "-" => "⊟"
   }.freeze
 
   SQUARED_NEGATIVE = {
@@ -1154,7 +1188,9 @@ module SuperSub
     'Y' => 'ʎ',
     'Z' => 'z',
     '?' => '¿',
-    '!' => '¡'
+    '!' => '¡',
+    "&" => "⅋",
+    "~" => "∽"
   }.freeze
 
   def self.convert(str, style)
@@ -1168,7 +1204,7 @@ module SuperSub
     when :script_bold, :bold_script, :bscript
       str.gsub(/[a-zA-Z0-9]/, SCRIPT_BOLD)
     when :fullwidth, :full_width
-      str.gsub(/[a-zA-Z0-9?!]/, FULLWIDTH)
+      str.gsub(/[a-zA-Z0-9.,?!]/, FULLWIDTH)
     when :gothic
       str.gsub(/[a-zA-Z]/, GOTHIC)
     when :gothic_bold, :bold_gothic, :bgothic
