@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
 module SuperSub
-  def c(y, x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!')
-    # x = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789?!'
-    x.split('').each_with_index do |a, i|
-      puts "\"#{a}\" => \"#{y.split('')[i]}\","
-    end
-  end
-
   SUPERSCRIPT = {
     'a' => 'ᵃ',
     'b' => 'ᵇ',
