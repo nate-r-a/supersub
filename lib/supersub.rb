@@ -885,9 +885,11 @@ module SuperSub
     '9' => '⑨',
     '.' => '⨀',
     "*" => "⊛"
-    "+" => "⊕",
     "-" => "⊖",
-    "=" => '⊜'
+    "+" => "⊕",
+    "=" => '⊜',
+    "<" => "⧀",
+    ">" => "⧁"
   }.freeze
 
   CIRCLED_NEGATIVE = {
@@ -1193,6 +1195,61 @@ module SuperSub
     "~" => "∽"
   }.freeze
 
+  FAUX_CYRILLIC = {
+    "a" => "а",
+"b" => "ъ",
+"c" => "с",
+"d" => "ↁ",
+"e" => "э",
+"f" => "f",
+"g" => "Б",
+"h" => "Ђ",
+"i" => "і",
+"j" => "ј",
+"k" => "к",
+"l" => "l",
+"m" => "м",
+"n" => "и",
+"o" => "о",
+"p" => "р",
+"q" => "q",
+"r" => "ѓ",
+"s" => "ѕ",
+"t" => "т",
+"u" => "ц",
+"v" => "v",
+"w" => "ш",
+"x" => "х",
+"y" => "Ў",
+"z" => "z",
+"A" => "Д",
+"B" => "Б",
+"C" => "Ҁ",
+"D" => "ↁ",
+"E" => "Є",
+"F" => "F",
+"G" => "Б",
+"H" => "Н",
+"I" => "І",
+"J" => "Ј",
+"K" => "Ќ",
+"L" => "L",
+"M" => "М",
+"N" => "И",
+"O" => "Ф",
+"P" => "Р",
+"Q" => "Q",
+"R" => "Я",
+"S" => "Ѕ",
+"T" => "Г",
+"U" => "Ц",
+"V" => "V",
+"W" => "Щ",
+"X" => "Ж",
+"Y" => "Ч",
+"Z" => "Z"
+  }
+
   def self.convert(str, style)
     case style
     when :superscript, :super
@@ -1201,13 +1258,13 @@ module SuperSub
       str.gsub(/[a-zA-Z0-9]/, SUBSCRIPT)
     when :script
       str.gsub(/[a-zA-Z]/, SCRIPT)
-    when :script_bold, :bold_script, :bscript
+    when :script_bold, :bold_script
       str.gsub(/[a-zA-Z0-9]/, SCRIPT_BOLD)
     when :fullwidth, :full_width
       str.gsub(/[a-zA-Z0-9.,?!]/, FULLWIDTH)
-    when :gothic
+    when :gothic, :fraktur
       str.gsub(/[a-zA-Z]/, GOTHIC)
-    when :gothic_bold, :bold_gothic, :bgothic
+    when :gothic_bold, :bold_gothic, :fraktur_bold
       str.gsub(/[a-zA-Z]/, GOTHIC_BOLD)
     when :sans_italic, :italic_sans
       str.gsub(/[a-zA-Z]/, SANS_ITALIC)
@@ -1232,6 +1289,8 @@ module SuperSub
     when :inverted, :invert, :upside_down
       # This one reverses the return to make it really "backwards"
       str.gsub(/[a-zA-Z?!]/, INVERTED).reverse
+    when :cyrillic, :russian
+      str.gsub(/[a-zA-Z]/, FAUX_CYRILLIC)
     end
   end
 end
