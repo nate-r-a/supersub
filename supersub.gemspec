@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.name = 'supersub'
   s.version = '0.1.1'
-  s.date = '2019-10-22'
+  s.date = '2019-11-11'
   s.summary = 'Supersub converts strings into superscript, subscript, and other text forms'
   s.files = ['lib/supersub.rb']
   s.authors = ['Nate Rudnick-Aldridge']
