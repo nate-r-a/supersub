@@ -139,7 +139,7 @@ class SuperSubTest < Minitest::Test
 
   def test_inverted
     %i[inverted invert upside_down].each do |keyword|
-      assert_equal "∽`+=_-\"'/\\><}{][)(*⅋^%$\#@¡¿,.9876543210zʎxʍ𐌡nʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐzʎxʍʌnʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐ",
+      assert_equal "∽`+=¯-\"'/\\><}{][)(*⅋^%$\#@¡¿,.9876543210zʎxʍ𐌡nʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐzʎxʍʌnʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐ",
                    SuperSub.convert(SuperSub.test_string, keyword)
     end
   end
