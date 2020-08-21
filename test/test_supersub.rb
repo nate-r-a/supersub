@@ -139,21 +139,21 @@ class SuperSubTest < Minitest::Test
 
   def test_inverted
     %i[inverted invert upside_down].each do |keyword|
-      assert_equal "∽`+=¯-\"'/\\><}{][)(*⅋^%$\#@¡¿,.9876543210zʎxʍ𐌡nʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐzʎxʍʌnʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐ",
+      assert_equal "∽`+=¯-\"'/\\><}{][)(*⅋^%$\#@¡¿,.68L95ᔭƐ210zʎxʍ𐌡nʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐzʎxʍʌnʇsɹbdouɯןʞɾıɥƃɟǝpɔqɐ",
                    SuperSub.convert(SuperSub.test_string, keyword)
     end
   end
 
-  # def test_reversed
-  #   %i[backwards reverse reversed].each do |keyword|
-  #     assert_equal "∽`+=_-\"'\\/><}{][)(*&^%$#@!⸮,.98765432߁0ZYXWVUTꙄᴙpꟼOᴎM⅃KJIHGꟻƎbↃdAzYxwvUTꙅᴙpqoᴎmlkjiHgꟻɘbↄdA",
-  #                  SuperSub.convert(SuperSub.test_string, keyword)
-  #   end
-  # end
+  def test_reversed
+    %i[backwards reverse reversed].each do |keyword|
+      assert_equal "∽`+=_-\"'/\\<>{}[]()*&^%$\#@!⸮,.98765432߁0ZYXWVUTꙄᴙpꟼOᴎM⅃KJIHGꟻƎbↃdAzYxwvUTꙅᴙpqoᴎmlkjiHgꟻɘbↄdA",
+                   SuperSub.convert(SuperSub.test_string, keyword)
+    end
+  end
 
   def test_cyrillic
     %i[cyrillic russian].each do |keyword|
-      assert_equal "аъсdэfБЂіјкlмиорqѓѕтцvшхЎzДБҀↁЄFБНІЈЌLМИФРQЯЅГЦVЩЖЧZ0123456789.,?!@\#$%^&*()[]{}<>/\\'\"-_=+`~",
+      assert_equal "аъсdэfБЂіјкlмиорqѓѕтцvшхЎzДБCDЄFБНІЈЌLМИФРQЯЅГЦVЩЖЧZ0123456789.,?!@\#$%^&*()[]{}<>/\\'\"-_=+`~",
                    SuperSub.convert(SuperSub.test_string, keyword)
     end
   end

@@ -1281,6 +1281,11 @@ module SuperSub
     'X' => 'x',
     'Y' => 'ʎ',
     'Z' => 'z',
+    '3' => 'Ɛ',
+    '4' => 'ᔭ',
+    '6' => '9',
+    '7' => 'L',
+    '9' => '6',
     '?' => '¿',
     '!' => '¡',
     '&' => '⅋',
@@ -1413,8 +1418,8 @@ module SuperSub
     'z' => 'z',
     'A' => 'Д',
     'B' => 'Б',
-    'C' => 'Ҁ',
-    'D' => 'ↁ',
+    'C' => 'C',
+    'D' => 'D',
     'E' => 'Є',
     'F' => 'F',
     'G' => 'Б',
@@ -1486,6 +1491,8 @@ module SuperSub
       convert_text(str, REVERSED).reverse
     when :cyrillic, :russian
       convert_text(str, FAUX_CYRILLIC)
+    else
+      raise "Unknown style parameter given. Check SuperSub.styles to see a full list of valid text styles."
     end
   end
 
@@ -1495,5 +1502,9 @@ module SuperSub
 
   def self.test_string
     'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,?!@#$%^&*()[]{}<>/\\\'"-_=+`~'
+  end
+
+  def self.styles
+    %i[superscript subscript script script_bold fullwidth monospace gothic gothic_bold sans sans_italic sans_bold sans_bold_italic serif_bold small_caps circled circled_negative squared squared_negative double_struck inverted reversed cyrillic]
   end
 end
